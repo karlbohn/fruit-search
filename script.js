@@ -9,13 +9,10 @@ const fruitSet = new Set(lowerCaseFruit);
 function search(input) {
 	let lowerCaseSearch = input.toLowerCase()
 	return fruits.filter((fruit) => fruit.toLowerCase().includes(lowerCaseSearch))
-	// showSuggestions(filterFruit, suggestions)
 }
 
 function searchHandler(e) {
 	showSuggestions(search(e.target.value), suggestions)
-	// console.log(e.target.value);
-	
 }
 
 function showSuggestions(results, inputVal) {
@@ -23,6 +20,10 @@ function showSuggestions(results, inputVal) {
 	results.forEach((fruit) => {
 		inputVal.innerHTML += `<li>${fruit}</li>`}
 	)
+	if(input.value == ''){
+		inputVal.innerHTML = '';
+	}
+	
 }
 
 function useSuggestion(e) {
